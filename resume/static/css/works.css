@@ -1,0 +1,211 @@
+.works-wrapper{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.gallery-image{
+    width: 70%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+}
+.gallery-image img{
+    width: 0%;
+    opacity: 0.9;
+    transition: width 0.5s;
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.active-slide{
+    width:100% !important;
+    display:block !important;
+}
+
+.works-right-border{
+    position: absolute;
+    right: 0;
+    top: -20%;
+    width: 39%;
+    height: 120%;
+    background: repeating-linear-gradient( 19deg, #000000, #000000 10px, yellow 10px, #ffff00 20px );
+    clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 15% 100%, 15% 81%, 0% 69%, 0% 34%, 15% 21%, 37% 0%);
+}
+.works-right-border:before{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 97%;
+    height: 100%;
+    background: yellow;
+    clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 15% 100%, 15% 81%, 0% 69%, 0% 34%, 15% 21%, 37% 0%);
+}
+.control-card{
+    width: 100%;
+    height: 40%;
+    background: red;
+    position: absolute;
+    top: 37%;
+    z-index: 0;
+    left: 10%;
+    clip-path: polygon(10% 0%, 100% 0%, 100% 95%, 83% 95%, 80% 100%, 15% 100%, 3% 85%, 3% 67%, 0% 59%, 0% 16%);
+}
+.control-card:after{
+    content: '';
+    display: block;
+    position: relative;
+    width: 98%;
+    height: 98%;
+    top: 1%;
+    right: -1%;
+    background: rgb(0 0 0 / 75%);
+    clip-path: polygon(10% 0%, 100% 0%, 100% 95%, 83% 95%, 80% 100%, 15% 100%, 3% 85%, 3% 67%, 0% 59%, 0% 16%);
+    z-index: 1;
+}
+.control-card-wrapper{
+    height: 100%;
+    filter: drop-shadow(4px 5px 6px black);
+}
+
+.works-button-group{
+    position: absolute;
+    background: #26070e;
+    top: 50%;
+    left: 1%;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    gap: 10px;
+    overflow: hidden;
+    padding: 1%;
+    z-index: 99;
+}
+
+.works-button-group button{
+    width: 80%;
+    height: 35px;
+    color: white;
+    text-shadow: 0 0 10px white;
+    background: transparent;
+    border-color: #dfc10e;
+    border-style: solid;
+    box-shadow: 0px 0px 6px 1px #dfc10e inset, 0px 0px 6px 1px #dfc10e;
+}
+.control-card p{
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    font-size: 14px;
+    color: #00fffa;
+    z-index: 10;
+}
+
+.works-button-group button:hover{
+    background: #dfc10e;
+}
+
+.retro-effect{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    animation: 4s retro-move linear infinite;
+    transform: translateY(-100%);
+    pointer-events: none;
+    margin-bottom:0;
+
+}
+.retro-effect i{
+    background: linear-gradient(to right, rgb(255 0 0), rgb(255 0 0 / 0%) 15%, rgb(255 0 0 / 0%) 50%, rgb(255 0 0 / 0%) 85%, rgb(255 0 0));
+    width: 100%;
+    height: calc(100% / 5);
+    border-bottom: 2px solid rgb(0 0 0 / 23%);
+}
+.first-retro{
+    animation-delay: 2s;
+}
+
+@keyframes retro-move{
+    to { transform: translateY(100%); }
+}
+
+.slide-glitch{
+  position:absolute;
+  width:0%;
+  top:50%;
+  left:5%;
+  font-size:98px;
+  color:white;
+  display:none;
+  animation: glitch-works 1s linear infinite;
+}
+
+@keyframes glitch-works{
+  2%,64%{
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%,60%{
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62%{
+    transform: translate(0,0) skew(5deg);
+  }
+}
+
+.slide-glitch:before,
+.slide-glitch:after{
+  content: '404 NOT HERE?';
+  position: absolute;
+  left: 0;
+}
+
+.slide-glitch:before{
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop{
+  2%,64%{
+    transform: translate(2px,-2px);
+  }
+  4%,60%{
+    transform: translate(-2px,2px);
+  }
+  62%{
+    transform: translate(13px,-1px) skew(-13deg);
+  }
+}
+
+.slide-glitch:after{
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom{
+  2%,64%{
+    transform: translate(-2px,0);
+  }
+  4%,60%{
+    transform: translate(-2px,0);
+  }
+  62%{
+    transform: translate(-22px,5px) skew(21deg);
+  }
+}

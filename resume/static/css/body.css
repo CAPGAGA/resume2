@@ -1,0 +1,58 @@
+body{
+    background: black;
+    overflow: hidden;
+}
+
+.active{
+    display:  block !important;
+}
+
+.contact-pop{
+    position:absolute;
+    top:0%;
+    left:25%;
+    background: red;
+    width:25%;
+    height:7%;
+    clip-path: polygon(0% 85%, 15% 100%, 85% 100%, 100% 85%, 100% 0%, 0% 0%);
+    transform: translateY(-100%);
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5%;
+    z-index:999;
+
+}
+.poped-in{
+    animation: pop-in-slide 2s forwards;
+}
+@keyframes pop-in-slide{
+    /* Start at 100% off the screen */
+    0% {
+        transform: translateY(-100%);
+    }
+    /* End at 0% on the screen */
+    100% {
+        transform: translateY(0%);
+    }
+
+}
+.contact-pop a{
+    z-index:1000;
+    color: cyan;
+}
+.contact-pop a:hover{
+    color:yellow;
+}
+.contact-pop:before{
+    content: '';
+    width:99%;
+    height:99%;
+    left:0.5%;
+    bottom:10%;
+    position:absolute;
+    background: rgb(0 0 0 / 54%);
+    clip-path: polygon(0% 85%, 15% 100%, 85% 100%, 100% 85%, 100% 0%, 0% 0%);
+}
