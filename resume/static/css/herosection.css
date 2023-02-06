@@ -28,6 +28,13 @@
     object-position: top;
 }
 
+.my-icon{
+    width: 44% !important;
+    height: 15% !important;
+    left: 57% !important;
+    top: 19% !important;
+}
+
 .hero-image .img-overlay{
     opacity: 0.5;
 }
